@@ -1,4 +1,6 @@
-# Todo
+# To-Do App
+
+A small application for presentation purposes.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
 
