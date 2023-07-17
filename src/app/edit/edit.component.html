@@ -1,0 +1,39 @@
+<div class="w-full flex justify-content-center">
+  <div  class="w-30rem text-white-alpha-70">
+    <div class="p-field flex flex-column my-2">
+      <label for="title">Title</label>
+      <input pInputText type="text" id="title" name="title" [(ngModel)]="taskItem.title" class="p-inputtext" />
+    </div>
+    <div class="p-field flex flex-column my-2">
+      <label for="description">Description</label>
+      <textarea pInputTextarea id="description" name="description" [(ngModel)]="taskItem.description" class="p-inputtextarea"></textarea>
+    </div>
+    <div class="p-field flex flex-column my-2">
+      <label for="deadline">Deadline</label>
+      <input
+        pInputText
+        type="date"
+        id="deadline"
+        name="deadline"
+        [(ngModel)]="taskItem.deadline"/>
+    </div>
+    <div class="p-field flex justify-content-end mt-3">
+      <div class="flex">
+        <button (click)="navigateToOverview()" class="p-button bg-gray-500 border-gray-500 p-component">
+          Back
+        </button>
+        <button (click)="submitTask()" [disabled]="!isFormValid()" class="p-button bg-gray-300 border-gray-300 p-component mx-2">
+          {{isCreatorMode ? 'Create' : 'Update'}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+

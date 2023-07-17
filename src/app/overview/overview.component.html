@@ -1,0 +1,36 @@
+<div class="flex justify-content-center w-full">
+  <div class="w-30rem py-3">
+    <div class="flex justify-content-end my-2">
+      <button (click)="createItem()" class="p-button p-button-secondary p-component">Add new</button>
+    </div>
+    <div *ngFor="let item of taskItems; index as index"
+         class="bg-bluegray-900 flex border-round
+         justify-content-between text-white-alpha-80 align-items-center shadow-4 p-3 m-1"
+         draggable="true"
+         (dragstart)="onDragStart($event, index)"
+         (dragover)="onDragOver($event)"
+         (drop)="onDrop($event, index)">
+      <div class="px-1">
+        <div class="text-xs text-white-alpha-50">Title</div>
+        <div>{{item.title}}</div>
+        <div class="text-xs text-white-alpha-50 pt-2">Description</div>
+        <div class="text-sm">{{item.description}}</div>
+        <div class="text-xs text-white-alpha-50 pt-2">Deadline</div>
+        <div>{{item.deadline}}</div>
+      </div>
+      <div class="flex pl-1">
+        <i (click)="editItem(item)" class="pi pi-pencil cursor-pointer hover:text-white"></i>
+        <i (click)="openConfirmModal(item.id)" class="pi pi-trash mx-2 cursor-pointer hover:text-white"></i>
+        <p-dialog [dismissableMask]="true" [modal]="true" [closeOnEscape]="true" [(visible)]="showConfirmModal" [header]="'Are you sure?'">
+          <div class="w-15rem flex justify-content-center p-2">
+            <button (click)="deleteItem()" pButton class="p-button-info mx-2">Yes</button>
+            <button (click)="closeConfirmModal()" pButton class="p-button-danger mx-2">No</button>
+          </div>
+        </p-dialog>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
