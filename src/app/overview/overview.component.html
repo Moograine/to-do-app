@@ -3,6 +3,7 @@
     <div class="flex justify-content-end my-2">
       <button (click)="createItem()" class="p-button p-button-secondary p-component">Add new</button>
     </div>
+    <h3 class="text-white-alpha-70 text-center" *ngIf="!taskItems.length">There are no tasks.</h3>
     <div *ngFor="let item of taskItems; index as index"
          class="bg-bluegray-900 flex border-round
          justify-content-between text-white-alpha-80 align-items-center shadow-4 p-3 m-1"
